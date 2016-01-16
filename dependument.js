@@ -6,7 +6,24 @@
   const fs = require('fs');
   const CONFIG_FILE = "package.json";
 
-  console.log(readFile(CONFIG_FILE));
+  (function() {
+    let file = readFile(CONFIG_FILE);
+
+    let dependencies = getDependencies(file);
+
+    console.log(dependencies);
+  })();
+
+  function getDependencies(file) {
+    let dependencies = file.dependencies;
+
+    if (dependencies === undefined
+      || dependencies === null) {
+        dependencies = {};
+    }
+
+    return dependencies;
+  }
 
   function readFile(path) {
     let contents = fs.readFileSync(path);
