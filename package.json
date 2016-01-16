@@ -1,0 +1,23 @@
+{
+  "name": "depdoc",
+  "version": "0.0.1",
+  "description": "Dependency documentiser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jameskmonger/depdoc.git"
+  },
+  "keywords": [
+    "Dependencies",
+    "Documentation"
+  ],
+  "author": "James Monger",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/Jameskmonger/depdoc/issues"
+  },
+  "homepage": "https://github.com/Jameskmonger/depdoc#readme"
+}
