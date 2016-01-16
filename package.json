@@ -1,5 +1,5 @@
 {
-  "name": "depdoc",
+  "name": "dependument",
   "version": "0.0.1",
   "description": "Dependency documentiser",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jameskmonger/depdoc.git"
+    "url": "git+https://github.com/Jameskmonger/dependument.git"
   },
   "keywords": [
     "Dependencies",
@@ -17,7 +17,7 @@
   "author": "James Monger",
   "license": "Unlicense",
   "bugs": {
-    "url": "https://github.com/Jameskmonger/depdoc/issues"
+    "url": "https://github.com/Jameskmonger/dependument/issues"
   },
-  "homepage": "https://github.com/Jameskmonger/depdoc#readme"
+  "homepage": "https://github.com/Jameskmonger/dependument#readme"
 }
