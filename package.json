@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "Dependency documentiser",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": { },
   "bin": {
     "dependument": "dependument.js"
   },
