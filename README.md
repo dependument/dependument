@@ -12,3 +12,7 @@ Dependument needs to be installed globally (with the `-g` argument) so that you 
 
 ## Usage
 To use dependument, first navigate to your project folder with your terminal.
+
+Then, run the following command:
+
+    $ dependument
