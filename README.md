@@ -9,3 +9,6 @@ To install dependument, simply run the following command to install the [npm pac
 
 ### Why does it need global installation?
 Dependument needs to be installed globally (with the `-g` argument) so that you can run it from the command line.
+
+## Usage
+To use dependument, first navigate to your project folder with your terminal.
