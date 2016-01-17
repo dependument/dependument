@@ -15,6 +15,11 @@
       return;
     }
 
+    if (!canWriteFile(OUTPUT_FILE)) {
+      console.log("Unable to start dependument, unable to write to " + OUTPUT_FILE);
+      return;
+    }
+
     let file = readFile(CONFIG_FILE);
 
     let dependencies = getDependencies(file);
@@ -30,6 +35,16 @@
     });
 
     return canRead;
+  }
+
+  function canWriteFile(path) {
+    let canWrite = false;
+
+    fs.access(path, fs.W_OK, function (err) {
+      canWrite = !err;
+    });
+
+    return canWrite;
   }
 
   function writeDependencies(dependencies, template, file) {
