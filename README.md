@@ -18,3 +18,6 @@ Then, run the following command:
     $ dependument
 
 A markdown file called `DEPENDENCIES.md` will be generated displaying some information about your dependencies and the developer dependencies from your `package.json`.
+
+## Licence
+Dependument is (not) licensed under [The Unlicense](http://unlicense.org/). Do what you like with it.
