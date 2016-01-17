@@ -6,7 +6,7 @@
   const fs = require('fs');
   const Path = require('path');
   const CONFIG_FILE = "package.json";
-  const templates = loadTemplates(__dirname + "/templates");
+  const TEMPLATES = loadTemplates(__dirname + "/templates");
 
   (function() {
     let file = readFile(CONFIG_FILE);
