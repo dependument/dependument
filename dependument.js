@@ -10,12 +10,27 @@
   const TEMPLATES = loadTemplates(__dirname + "/templates");
 
   (function() {
+    if (!canReadFile(CONFIG_FILE)) {
+      console.log("Unable to start dependument, unable to read package.json");
+      return;
+    }
+
     let file = readFile(CONFIG_FILE);
 
     let dependencies = getDependencies(file);
 
     writeDependencies(dependencies, TEMPLATES["dependency"], OUTPUT_FILE);
   })();
+
+  function canReadFile(path) {
+    let canRead = false;
+
+    fs.access(path, fs.R_OK, function (err) {
+      canRead = !err;
+    });
+
+    return canRead;
+  }
 
   function writeDependencies(dependencies, template, file) {
     let output = "";
