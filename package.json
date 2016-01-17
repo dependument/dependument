@@ -1,6 +1,6 @@
 {
   "name": "dependument",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dependency documentiser",
   "main": "index.js",
   "scripts": { },
