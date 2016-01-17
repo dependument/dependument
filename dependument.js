@@ -22,32 +22,24 @@
 
     let file = readFile(CONFIG_FILE);
 
-    let dependencies = getDependencies(file);
+    let messages = getDependenciesMessages(file);
 
-    writeDependencies(dependencies, TEMPLATES["dependency"], OUTPUT_FILE);
+    writeDependencies(messages, TEMPLATES["output"], OUTPUT_FILE);
   })();
 
-  function canReadFile(path) {
-    let canRead = false;
+  function writeDependencies(messages, template, file) {
+    let tmpl = template;
 
-    fs.access(path, fs.R_OK, function (err) {
-      canRead = !err;
+    Object.keys(messages).forEach(function (key) {
+      tmpl = tmpl.replace("{{" + key + "}}", messages[key]);
     });
 
-    return canRead;
-  }
-
-  function canWriteFile(path) {
-    let canWrite = false;
-
-    fs.access(path, fs.W_OK, function (err) {
-      canWrite = !err;
+    fs.writeFile(file, tmpl, 'utf8', function (err) {
+      console.log("Write complete");
     });
-
-    return canWrite;
   }
 
-  function writeDependencies(dependencies, template, file) {
+  function getDependenciesOutput(dependencies, template) {
     let output = "";
 
     Object.keys(dependencies).forEach(function (key) {
@@ -63,9 +55,49 @@
       output = output + line;
     });
 
-    fs.writeFile(file, output, 'utf8', function (err) {
-      console.log("Write complete");
-    });
+    if (output === "") {
+      return "None";
+    }
+
+    return output;
+  }
+
+  function getDependenciesMessages(file) {
+    let dependencies = getDependencies(file);
+    let devDependencies = getDevDependencies(file);
+
+    let dependenciesOutput = getDependenciesOutput(dependencies, TEMPLATES["dependency"]);
+    let devDependenciesOutput = getDependenciesOutput(devDependencies, TEMPLATES["dependency"]);
+
+    return {
+      dependencies: dependenciesOutput,
+      devDependencies: devDependenciesOutput
+    };
+  }
+
+  function canReadFile(path) {
+    try {
+      fs.accessSync(path, fs.R_OK);
+    } catch (err) {
+      return false;
+    }
+
+    return true;
+  }
+
+  function canWriteFile(path) {
+    try {
+      fs.accessSync(path, fs.W_OK);
+    } catch (err) {
+      // If the error is that the file doesn't exist, then we can write
+      if (err.code == "ENOENT") {
+        return true;
+      }
+
+      return false;
+    }
+
+    return true;
   }
 
   function loadTemplates(path) {
@@ -87,6 +119,17 @@
     }
 
     return output;
+  }
+
+  function getDevDependencies(file) {
+    let devDependencies = file.devDependencies;
+
+    if (devDependencies === undefined
+      || devDependencies === null) {
+        devDependencies = {};
+    }
+
+    return devDependencies;
   }
 
   function getDependencies(file) {
