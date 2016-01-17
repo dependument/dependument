@@ -16,3 +16,5 @@ To use dependument, first navigate to your project folder with your terminal.
 Then, run the following command:
 
     $ dependument
+
+A markdown file called `DEPENDENCIES.md` will be generated displaying some information about your dependencies and the developer dependencies from your `package.json`.
