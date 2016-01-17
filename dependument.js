@@ -4,6 +4,7 @@
   "use strict";
 
   const fs = require('fs');
+  const Path = require('path');
   const CONFIG_FILE = "package.json";
   const templates = loadTemplates(__dirname + "/templates");
 
@@ -18,8 +19,20 @@
     let output = {};
 
     for (let f of files) {
-      console.log(f);
+      // Construct the full path of the file
+      let fullPath = Path.join(path, f);
+
+      // Read the contents of the file
+      let contents = fs.readFileSync(fullPath);
+
+      // Parse the name (without extension) from the file
+      let fileName = Path.parse(f).name;
+
+      // Conver the contents to utf-8 and store
+      output[fileName] = contents.toString('utf8');
     }
+
+    return output;
   }
 
   function getDependencies(file) {
