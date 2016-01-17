@@ -6,13 +6,37 @@
   const fs = require('fs');
   const Path = require('path');
   const CONFIG_FILE = "package.json";
+  const OUTPUT_FILE = "DEPENDENCIES.md";
   const TEMPLATES = loadTemplates(__dirname + "/templates");
 
   (function() {
     let file = readFile(CONFIG_FILE);
 
     let dependencies = getDependencies(file);
+
+    writeDependencies(dependencies, TEMPLATES["dependency"], OUTPUT_FILE);
   })();
+
+  function writeDependencies(dependencies, template, file) {
+    let output = "";
+
+    Object.keys(dependencies).forEach(function (key) {
+      let name = key;
+      let version = dependencies[key];
+      let url = "https://www.npmjs.com/package/" + name;
+
+      let line = template
+                  .replace("{{package_name}}", name)
+                  .replace("{{package_url}}", url)
+                  .replace("{{package_version}}", version);
+
+      output = output + line;
+    });
+
+    fs.writeFile(file, output, 'utf8', function (err) {
+      console.log("Write complete");
+    });
+  }
 
   function loadTemplates(path) {
     let files = fs.readdirSync(path);
