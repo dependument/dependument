@@ -3,7 +3,9 @@
   "version": "0.1.1",
   "description": "Dependency documentiser",
   "main": "index.js",
-  "scripts": { },
+  "scripts": {
+    "test": "echo tests go here"
+  },
   "bin": {
     "dependument": "dependument.js"
   },
