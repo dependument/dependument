@@ -17,8 +17,16 @@ export class FileSystem implements IFileSystem {
     return true;
   }
 
-  getDependencies(path: string): any {
+  private getToken(path: string, token: string): any {
     let contents = this._baseSystem.readFileSync(path);
-    return JSON.parse(contents).dependencies;
+    return JSON.parse(contents)[token];
+  }
+
+  getDependencies(path: string): any {
+    return this.getToken(path, 'dependencies');
+  }
+
+  getDevDependencies(path: string): any {
+    return this.getToken(path, 'devDependencies');
   }
 }

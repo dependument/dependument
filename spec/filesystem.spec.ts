@@ -53,3 +53,31 @@ describe('FileSystem.getDependencies', () => {
     returnCorrectDependencies(i, testCase[0], testCase[1]);
   }
 });
+
+describe('FileSystem.getDevDependencies', () => {
+  let testCases = [
+    ['{"devDependencies": {}}', {}],
+    ['{"devDependencies": {"i have one": "0.0.1"}}', {"i have one": "0.0.1"}],
+    ['{"devDependencies": {"ice cream": "2.3.1"}}', {"ice cream": "2.3.1"}],
+  ];
+
+  function returnCorrectDevDependencies(testCase, input, output) {
+    it('should return the correct dev dependencies [test case ' + testCase + ']', () => {
+      let fileSystem = new FileSystem({
+        readFileSync: (file: any) => {
+          return input;
+        }
+      });
+
+      let devDependencies = fileSystem.getDevDependencies('');
+
+      expect(devDependencies).toEqual(output);
+    });
+  }
+
+  for (let i in testCases) {
+    let testCase = testCases[i];
+
+    returnCorrectDevDependencies(i, testCase[0], testCase[1]);
+  }
+});
