@@ -22,8 +22,7 @@
     ],
     "files": [
         "filesystem/filesystem.i.ts",
-        "filesystem/filesystem.ts",
-        "helloworld.ts"
+        "filesystem/filesystem.ts"
     ],
     "atom": {
         "rewriteTsconfig": true

@@ -22,7 +22,6 @@
     ],
     "files": [
         "filesystem.spec.ts",
-        "helloworld.spec.ts",
         "karma.conf.ts",
         "spec.conf.ts"
     ],
