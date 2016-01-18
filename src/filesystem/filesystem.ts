@@ -16,4 +16,9 @@ export class FileSystem implements IFileSystem {
 
     return true;
   }
+
+  getDependencies(path: string): any {
+    let contents = this._baseSystem.readFileSync(path);
+    return JSON.parse(contents).dependencies;
+  }
 }
