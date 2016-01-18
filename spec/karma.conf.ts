@@ -4,7 +4,7 @@ module.exports = (config) => {
   var configuration = ({
     basePath: '../',
 
-    frameworks: ['jasmine', 'requirejs'],
+    frameworks: ['jasmine'],
 
     files: [
       'spec/spec.conf.js',
@@ -32,7 +32,6 @@ module.exports = (config) => {
 
     plugins: [
       'karma-jasmine',
-      'karma-requirejs',
       'karma-chrome-launcher',
       'karma-spec-reporter'
     ],
