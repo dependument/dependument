@@ -13,4 +13,5 @@ None
 * [karma-requirejs](https://www.npmjs.com/package/karma-requirejs) (^0.2.3)
 * [karma-spec-reporter](https://www.npmjs.com/package/karma-spec-reporter) (0.0.23)
 * [phantomjs](https://www.npmjs.com/package/phantomjs) (^1.9.19)
+* [requirejs](https://www.npmjs.com/package/requirejs) (^2.1.22)
 
