@@ -19,6 +19,11 @@ class GulpEnvironment {
   }
 
   registerTasks() {
-
+    let gulp = this.gulp;
   }
 }
+
+(function() {
+  var gulp = new GulpEnvironment();
+  gulp.registerTasks();
+})();
