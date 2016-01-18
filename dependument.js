@@ -63,8 +63,8 @@
   }
 
   function getDependenciesMessages(file) {
-    let dependencies = getDependencies(file);
-    let devDependencies = getDevDependencies(file);
+    let dependencies = getFileToken(file, "dependencies");
+    let devDependencies = getFileToken(file, "devDependencies");
 
     let dependenciesOutput = getDependenciesOutput(dependencies, TEMPLATES["dependency"]);
     let devDependenciesOutput = getDependenciesOutput(devDependencies, TEMPLATES["dependency"]);
@@ -121,26 +121,15 @@
     return output;
   }
 
-  function getDevDependencies(file) {
-    let devDependencies = file.devDependencies;
+  function getFileToken(file, token) {
+    let part = file[token];
 
-    if (devDependencies === undefined
-      || devDependencies === null) {
-        devDependencies = {};
+    if (part === undefined
+      || part === null) {
+        part = {};
     }
 
-    return devDependencies;
-  }
-
-  function getDependencies(file) {
-    let dependencies = file.dependencies;
-
-    if (dependencies === undefined
-      || dependencies === null) {
-        dependencies = {};
-    }
-
-    return dependencies;
+    return part;
   }
 
   function readFile(path) {
