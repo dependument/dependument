@@ -4,7 +4,7 @@
   "description": "Dependency documentiser",
   "main": "index.js",
   "scripts": {
-    "test": "echo tests go here"
+    "test": "tsc gulpfile --module commonjs && gulp bla"
   },
   "bin": {
     "dependument": "dependument.js"
@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/Jameskmonger/dependument/issues"
   },
-  "homepage": "https://github.com/Jameskmonger/dependument#readme"
+  "homepage": "https://github.com/Jameskmonger/dependument#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-typescript": "^2.10.0",
+    "karma": "^0.13.19"
+  }
 }
