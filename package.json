@@ -4,7 +4,7 @@
   "description": "Dependency documentiser",
   "main": "index.js",
   "scripts": {
-    "test": "tsc gulpfile --module commonjs && gulp bla"
+    "test": "tsc gulpfile --module commonjs && gulp test"
   },
   "bin": {
     "dependument": "dependument.js"

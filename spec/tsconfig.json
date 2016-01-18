@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "amd",
+        "moduleResolution": "classic",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "outDir": "../build.spec/"
+    },
+    "filesGlob": [
+        "**/*.ts",
+        "**/*.tsx",
+        "!node_modules/**"
+    ],
+    "files": [
+        "karma.conf.ts",
+        "spec.conf.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
+}
