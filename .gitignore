@@ -2,3 +2,4 @@ typings
 node_modules
 gulpfile.js
 build.spec
+build

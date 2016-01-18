@@ -21,6 +21,8 @@
         "!node_modules/**"
     ],
     "files": [
+        "filesystem/filesystem.i.ts",
+        "filesystem/filesystem.ts",
         "helloworld.ts"
     ],
     "atom": {

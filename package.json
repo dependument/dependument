@@ -26,8 +26,8 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-typescript": "^2.10.0",
-    "karma": "^0.13.19",
     "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.3",
