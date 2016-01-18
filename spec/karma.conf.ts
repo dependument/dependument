@@ -2,14 +2,14 @@
 
 module.exports = (config) => {
   var configuration = ({
-    basePath: '',
+    basePath: '../',
 
     frameworks: ['jasmine', 'requirejs'],
 
     files: [
-      'spec.conf.js',
-      //{pattern: 'spec/**/*.spec.js', included: false},
-      //{pattern: 'src/**/*.js', included: false}
+      'spec/spec.conf.js',
+      {pattern: 'spec/**/*.spec.js', included: false},
+      {pattern: 'src/**/*.js', included: false}
     ],
 
     exclude: [ ],
