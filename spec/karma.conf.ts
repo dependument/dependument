@@ -14,9 +14,19 @@ module.exports = (config) => {
 
     exclude: [ ],
 
-    preprocessors: { },
+    preprocessors: {
+      'src/**/*.js': ['coverage'],
+    },
 
-    reporters: ['spec'],
+    reporters: ['spec', 'coverage'],
+
+    coverageReporter: {
+		  reporters: [
+        {type: 'lcov'},
+        {type: 'text-summary'}
+      ],
+		  dir: 'coverage/'
+    },
 
     port: 9876,
 
@@ -34,7 +44,8 @@ module.exports = (config) => {
       'karma-jasmine',
       'karma-requirejs',
       'karma-chrome-launcher',
-      'karma-spec-reporter'
+      'karma-spec-reporter',
+      'karma-coverage'
     ],
 
     concurrency: Infinity
