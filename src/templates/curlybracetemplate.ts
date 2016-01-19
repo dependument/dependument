@@ -1,6 +1,12 @@
 import { ITemplate } from 'template.i';
 
 export class CurlyBraceTemplate implements ITemplate {
+  private _contents: string;
+
+  constructor(contents: string) {
+    this._contents = contents;
+  }
+
   getOpeningEscape(): string {
     return "{{";
   }
@@ -10,6 +16,6 @@ export class CurlyBraceTemplate implements ITemplate {
   }
 
   getContents(): string {
-    return "";
+    return this._contents;
   }
 }
