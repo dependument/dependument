@@ -21,6 +21,7 @@
         "!node_modules/**"
     ],
     "files": [
+        "basefilesystem.i.ts",
         "dependument.manager.ts",
         "dependument.ts",
         "filesystem/filesystem.i.ts",

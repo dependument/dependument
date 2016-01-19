@@ -1,9 +1,10 @@
 import { IFileSystem } from './filesystem.i';
+import { IBaseFileSystem } from '../basefilesystem.i';
 
 export class FileSystem implements IFileSystem {
-  private _baseSystem: any;
+  private _baseSystem: IBaseFileSystem;
 
-  constructor(baseSystem: any) {
+  constructor(baseSystem: IBaseFileSystem) {
     this._baseSystem = baseSystem;
   }
 
@@ -18,7 +19,7 @@ export class FileSystem implements IFileSystem {
   }
 
   private getToken(path: string, token: string): any {
-    let contents = this._baseSystem.readFileSync(path);
+    let contents = this._baseSystem.readFileSync(path).toString();
     return JSON.parse(contents)[token];
   }
 

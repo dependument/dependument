@@ -1,11 +1,12 @@
 /// <reference path="../../typings/node/node.d.ts" />
 
 import * as path from 'path';
+import { IBaseFileSystem } from '../basefilesystem.i';
 
 export class TemplateFileSystem {
-  private _baseSystem: any;
+  private _baseSystem: IBaseFileSystem;
 
-  constructor(baseSystem: any) {
+  constructor(baseSystem: IBaseFileSystem) {
     this._baseSystem = baseSystem;
   }
 
