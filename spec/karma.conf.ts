@@ -8,6 +8,7 @@ module.exports = (config) => {
 
     files: [
       'spec/spec.conf.js',
+      {pattern: 'spec/spec.utils.js', included: false},
       {pattern: 'spec/**/*.spec.js', included: false},
       {pattern: 'src/**/*.js', included: false}
     ],

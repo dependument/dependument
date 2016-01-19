@@ -4,7 +4,7 @@ class SpecConfiguration {
     const MATCHER: RegExp = /.*(\.spec\.js)/i;
 
     Object.keys((window as any).__karma__.files).forEach(function(file) {
-      if (MATCHER.test(file)) {
+      if (MATCHER.test(file) || file === 'spec.utils.js') {
         // Normalize paths to RequireJS module names.
         // If you require sub-dependencies of test files to be loaded as-is (requiring file extension)
         // then do not normalize the paths
