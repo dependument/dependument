@@ -50,4 +50,83 @@ describe('Template', () => {
       should_return(t, testCases[t]);
     }
   });
+
+  describe('bindObject (alphabet bindings)', () => {
+    let testCases = [
+      [
+        '{{dependencies}}',
+        {
+          dependencies: 'bind me!'
+        },
+        'bind me!'
+      ],
+      [
+        '{{a}}bla{{b}}',
+        {
+          a: 'apple',
+          b: 'melon'
+        },
+        'appleblamelon'
+      ],
+      [
+        '{{animal}} are my favourite animal',
+        {
+          animal: 'cats'
+        },
+        'cats are my favourite animal'
+      ]
+    ];
+
+    function should_return(index, inputTemplate, inputBinding, output) {
+      it('should return "' + output + '" [test case ' + index + ']', () => {
+        let tmp = new Template(inputTemplate);
+
+        expect(tmp.bindObject(inputBinding)).toBe(output);
+      });
+    }
+
+    for (let t in testCases) {
+      should_return(t, testCases[t][0], testCases[t][1], testCases[t][2]);
+    }
+  });
+
+  describe('bindObject (complex bindings)', () => {
+    let testCases = [
+      [
+        '{{dependency.name}} - {{dependency.description}}',
+        {
+          'dependency.name': 'a',
+          'dependency.description': 'b'
+        },
+        'a - b'
+      ],
+      [
+        '{{a.a}}bla{{b.c}}',
+        {
+          'a.a': 'jj',
+          'b.c': 'kk'
+        },
+        'jjblakk'
+      ],
+      [
+        '{{food.name}} is my favourite food',
+        {
+          'food.name': 'cheese'
+        },
+        'cheese is my favourite food'
+      ]
+    ];
+
+    function should_return(index, inputTemplate, inputBinding, output) {
+      it('should return "' + output + '" [test case ' + index + ']', () => {
+        let tmp = new Template(inputTemplate);
+
+        expect(tmp.bindObject(inputBinding)).toBe(output);
+      });
+    }
+
+    for (let t in testCases) {
+      should_return(t, testCases[t][0], testCases[t][1], testCases[t][2]);
+    }
+  });
 });
