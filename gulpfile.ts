@@ -14,17 +14,26 @@ const Server = require('karma').Server;
 const coveralls = require('gulp-coveralls');
 
 class GulpEnvironment {
-  private srcTSConfig;
-  private specTSConfig;
+  private srcTSConfigAMD;
+  private specTSConfigAMD;
+  private srcTSConfigUMD;
 
   constructor() {
-    this.srcTSConfig = tsc.createProject('src/tsconfig.json');
-    this.specTSConfig = tsc.createProject('spec/tsconfig.json');
+    this.srcTSConfigAMD = tsc.createProject('src/tsconfig.json', {
+      module: 'amd'
+    });
+    this.specTSConfigAMD = tsc.createProject('spec/tsconfig.json', {
+      module: 'amd'
+    });
+    this.srcTSConfigUMD = tsc.createProject('src/tsconfig.json', {
+      module: 'umd'
+    });
   }
 
   registerTasks() {
-    let srcTSConfig = this.srcTSConfig;
-    let specTSConfig = this.specTSConfig;
+    let srcTSConfigAMD = this.srcTSConfigAMD;
+    let specTSConfigAMD = this.specTSConfigAMD;
+    let srcTSConfigUMD = this.srcTSConfigUMD;
 
     gulp.task('test:ci', (done) => {
       runSequence('test', 'send-coveralls', () => {
@@ -43,24 +52,20 @@ class GulpEnvironment {
       done();
     });
     gulp.task('build:umd', (done) => {
-      srcTSConfig.config.compilerOptions.module = 'umd';
-
-      srcTSConfig.src()
-        .pipe(tsc(srcTSConfig))
+      srcTSConfigUMD.src()
+        .pipe(tsc(srcTSConfigUMD))
         .pipe(gulp.dest('build'))
         .on('end', done);
     });
     gulp.task('test-build:spec', (done) => {
-      specTSConfig.src()
-        .pipe(tsc(specTSConfig))
+      specTSConfigAMD.src()
+        .pipe(tsc(specTSConfigAMD))
         .pipe(gulp.dest('build.spec'))
         .on('end', done);
     });
     gulp.task('test-build:src', (done) => {
-      srcTSConfig.config.compilerOptions.module = 'amd';
-
-      srcTSConfig.src()
-        .pipe(tsc(srcTSConfig))
+      srcTSConfigAMD.src()
+        .pipe(tsc(srcTSConfigAMD))
         .pipe(gulp.dest('build.spec/src'))
         .on('end', done);
     });
