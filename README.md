@@ -1,6 +1,8 @@
 # dependument
 
-[![license](https://img.shields.io/badge/license-unlicense-blue.svg)](http://shields.io/) [![npm version](https://badge.fury.io/js/dependument.svg)](https://badge.fury.io/js/dependument)
+[![Build Status](https://travis-ci.org/Jameskmonger/dependument.svg?branch=master)](https://travis-ci.org/Jameskmonger/dependument)
+[![license](https://img.shields.io/badge/license-unlicense-blue.svg)](http://shields.io/)
+[![npm version](https://badge.fury.io/js/dependument.svg)](https://badge.fury.io/js/dependument)
 
 Dependument is an open-source, lightweight (ironically, it has no dependencies) tool for automatically documenting the dependencies associated with your project.
 
