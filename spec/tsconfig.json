@@ -24,7 +24,7 @@
         "filesystem.spec.ts",
         "karma.conf.ts",
         "spec.conf.ts",
-        "templates/curlybracetemplate.spec.ts",
+        "templates/template.spec.ts",
         "templates/templatefilesystem.spec.ts"
     ],
     "atom": {

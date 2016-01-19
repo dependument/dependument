@@ -1,11 +1,11 @@
 /// <reference path="../../typings/jasmine/jasmine.d.ts" />
 
-import { CurlyBraceTemplate } from '../../src/templates/curlybracetemplate';
+import { Template } from '../../src/templates/template';
 
-describe('CurlyBraceTemplate', () => {
+describe('Template', () => {
   describe('getOpeningEscape', () => {
     it('should return "{{"', () => {
-      let tmp = new CurlyBraceTemplate('');
+      let tmp = new Template('');
 
       expect(tmp.getOpeningEscape()).toBe("{{");
     });
@@ -13,7 +13,7 @@ describe('CurlyBraceTemplate', () => {
 
   describe('getClosingEscape', () => {
     it('should return "}}"', () => {
-      let tmp = new CurlyBraceTemplate('');
+      let tmp = new Template('');
 
       expect(tmp.getClosingEscape()).toBe("}}");
     });
@@ -24,7 +24,7 @@ describe('CurlyBraceTemplate', () => {
 
     function should_return(index, output) {
       it('should return "' + output + '" [test case ' + index + ']', () => {
-        let tmp = new CurlyBraceTemplate(output);
+        let tmp = new Template(output);
 
         expect(tmp.getContents()).toBe(output);
       });

@@ -1,6 +1,4 @@
-import { ITemplate } from 'template.i';
-
-export class CurlyBraceTemplate implements ITemplate {
+export class Template {
   private _contents: string;
 
   constructor(contents: string) {
