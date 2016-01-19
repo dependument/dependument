@@ -37,6 +37,9 @@
     },
     "gulp-typescript/gulp-typescript.d.ts": {
       "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
+    },
+    "run-sequence/run-sequence.d.ts": {
+      "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
     }
   }
 }
