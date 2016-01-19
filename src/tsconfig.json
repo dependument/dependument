@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "amd",
+        "moduleResolution": "classic",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "outDir": "../build"
+    },
+    "filesGlob": [
+        "**/*.ts",
+        "**/*.tsx",
+        "!node_modules/**"
+    ],
+    "files": [
+        "filesystem/filesystem.i.ts",
+        "filesystem/filesystem.ts",
+        "templates/curlybracetemplate.ts",
+        "templates/template.i.ts",
+        "templates/templatefilesystem.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
+}
