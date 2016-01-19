@@ -24,7 +24,8 @@
         "filesystem/filesystem.i.ts",
         "filesystem/filesystem.ts",
         "templates/curlybracetemplate.ts",
-        "templates/template.i.ts"
+        "templates/template.i.ts",
+        "templates/templatefilesystem.ts"
     ],
     "atom": {
         "rewriteTsconfig": true
