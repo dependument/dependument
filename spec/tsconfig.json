@@ -23,7 +23,8 @@
     "files": [
         "filesystem.spec.ts",
         "karma.conf.ts",
-        "spec.conf.ts"
+        "spec.conf.ts",
+        "templates/curlybracetemplate.spec.ts"
     ],
     "atom": {
         "rewriteTsconfig": true

@@ -22,7 +22,9 @@
     ],
     "files": [
         "filesystem/filesystem.i.ts",
-        "filesystem/filesystem.ts"
+        "filesystem/filesystem.ts",
+        "templates/curlybracetemplate.ts",
+        "templates/template.i.ts"
     ],
     "atom": {
         "rewriteTsconfig": true
