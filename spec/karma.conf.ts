@@ -53,7 +53,9 @@ module.exports = (config) => {
 
   if(process.env.TRAVIS) {
     configuration.browsers = ['PhantomJS'];
+    configuration.reporters.push('coveralls');
     configuration.plugins.push('karma-phantomjs-launcher');
+    configuration.plugins.push('karma-coveralls');
   }
 
   config.set(configuration);
