@@ -41,5 +41,8 @@
     "phantomjs": "^1.9.19",
     "requirejs": "^2.1.22",
     "run-sequence": "^1.1.5"
+  },
+  "dependencies": {
+    "inversify": "^1.2.0"
   }
 }

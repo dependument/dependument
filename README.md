@@ -6,7 +6,7 @@
 [![Dev Dependency Status](https://david-dm.org/jameskmonger/dependument/dev-status.png)](https://david-dm.org/jameskmonger/dependument#info=devDependencies&view=table)
 [![license](https://img.shields.io/badge/license-unlicense-blue.svg)](http://shields.io/)
 
-Dependument is an open-source, lightweight (ironically, it has no dependencies) tool for automatically documenting the dependencies associated with your project.
+Dependument is an open-source, lightweight tool for automatically documenting the dependencies associated with your project.
 
 ## Setup
 To install dependument, simply run the following command to install the [npm package](https://www.npmjs.com/package/dependument).
