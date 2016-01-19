@@ -12,7 +12,7 @@
       "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
     },
     "jasmine/jasmine.d.ts": {
-      "commit": "70bf7e2bfeb0d5b1b651ef3219bcc65c8eec117e"
+      "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
     },
     "del/del.d.ts": {
       "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
@@ -33,6 +33,9 @@
       "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
     },
     "orchestrator/orchestrator.d.ts": {
+      "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
+    },
+    "gulp-typescript/gulp-typescript.d.ts": {
       "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
     }
   }

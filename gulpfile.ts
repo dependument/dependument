@@ -1,31 +1,30 @@
-/// <reference path="typings/requirejs/require.d.ts" />
+/// <reference path="typings/gulp/gulp.d.ts" />
+/// <reference path="typings/del/del.d.ts" />
+/// <reference path="typings/gulp-typescript/gulp-typescript.d.ts" />
 
 declare var __dirname: string;
 
+import gulp = require('gulp');
+import del = require('del');
+import tsc = require('gulp-typescript');
+
+const Server = require('karma').Server;
+
 class GulpEnvironment {
-  private gulp;
-  private tsc;
-  private Server;
   private srcTSConfig;
   private specTSConfig;
 
   constructor() {
-    this.gulp = require('gulp');
-    this.tsc = require('gulp-typescript');
-    this.Server = require('karma').Server;
-    this.srcTSConfig = this.tsc.createProject('src/tsconfig.json');
-    this.specTSConfig = this.tsc.createProject('spec/tsconfig.json');
+    this.srcTSConfig = tsc.createProject('src/tsconfig.json');
+    this.specTSConfig = tsc.createProject('spec/tsconfig.json');
   }
 
   registerTasks() {
-    let gulp = this.gulp;
-    let tsc = this.tsc;
-    let Server = this.Server;
     let srcTSConfig = this.srcTSConfig;
     let specTSConfig = this.specTSConfig;
 
     gulp.task('test', ['test-build:spec', 'test-build:src'], () => {
-      new this.Server({
+      new Server({
         configFile: __dirname + '/build.spec/spec/karma.conf.js',
         singleRun: true
       }).start();
