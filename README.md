@@ -1,6 +1,6 @@
 # dependument
 
-[![Build Status](https://travis-ci.org/Jameskmonger/dependument.svg?branch=master)](https://travis-ci.org/Jameskmonger/dependument)
+[![Build Status](https://travis-ci.org/Jameskmonger/dependument.svg?branch=typescript)](https://travis-ci.org/Jameskmonger/dependument)
 [![npm version](https://badge.fury.io/js/dependument.svg)](https://badge.fury.io/js/dependument)
 [![license](https://img.shields.io/badge/license-unlicense-blue.svg)](http://shields.io/)
 
