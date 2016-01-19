@@ -51,7 +51,7 @@ module.exports = (config) => {
     concurrency: Infinity
   });
 
-  if(process.env.TRAVIS) {
+  if (process.env.TRAVIS) {
     configuration.browsers = ['PhantomJS'];
     configuration.reporters.push('coveralls');
     configuration.plugins.push('karma-phantomjs-launcher');
