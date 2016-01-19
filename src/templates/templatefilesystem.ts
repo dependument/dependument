@@ -12,7 +12,7 @@ export class TemplateFileSystem {
       return templates;
     }
 
-    return templates;
+    return this._baseSystem.readdirSync('template');
   }
 
   private directoryExists(directory: string): boolean {
