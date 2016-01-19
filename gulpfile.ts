@@ -41,6 +41,11 @@ class GulpEnvironment {
         .pipe(gulp.dest('build.spec/src'))
         .on('end', done);
     });
+    gulp.task('clean:build.spec', () => {
+      return del([
+        'build.spec'
+      ]);
+    });
   }
 }
 
