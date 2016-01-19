@@ -5,7 +5,7 @@ import { FileSystem } from '../src/filesystem/filesystem';
 describe('FileSystem.canReadPackageInfo', () => {
   it('should return false if unable to access', () => {
     let fileSystem = new FileSystem({
-      accessSync: (file: any, type: any) => {
+      accessSync: (file, type) => {
         throw new Error("mock error");
       }
     });
@@ -17,7 +17,7 @@ describe('FileSystem.canReadPackageInfo', () => {
 
   it('should return true if able to access', () => {
     let fileSystem = new FileSystem({
-      accessSync: (file: any, type: any) => { }
+      accessSync: (file, type) => { }
     });
 
     let canRead = fileSystem.canReadPackageInfo('');
@@ -36,7 +36,7 @@ describe('FileSystem.getDependencies', () => {
   function returnCorrectDependencies(testCase, input, output) {
     it('should return the correct dependencies [test case ' + testCase + ']', () => {
       let fileSystem = new FileSystem({
-        readFileSync: (file: any) => {
+        readFileSync: (file) => {
           return input;
         }
       });
@@ -64,7 +64,7 @@ describe('FileSystem.getDevDependencies', () => {
   function returnCorrectDevDependencies(testCase, input, output) {
     it('should return the correct dev dependencies [test case ' + testCase + ']', () => {
       let fileSystem = new FileSystem({
-        readFileSync: (file: any) => {
+        readFileSync: (file) => {
           return input;
         }
       });
