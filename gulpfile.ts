@@ -11,6 +11,7 @@ import tsc = require('gulp-typescript');
 import runSequence = require('run-sequence');
 
 const Server = require('karma').Server;
+const coveralls = require('gulp-coveralls');
 
 class GulpEnvironment {
   private srcTSConfig;
@@ -25,6 +26,10 @@ class GulpEnvironment {
     let srcTSConfig = this.srcTSConfig;
     let specTSConfig = this.specTSConfig;
 
+    gulp.task('test:ci', ['test'], (done) => {
+      gulp.src('build.spec/coverage/**/lcov.info')
+        .pipe(coveralls());
+    });
     gulp.task('test', (done) => {
       runSequence('clean:build.spec', 'test-build:spec', 'test-build:src', 'test:start', () => {
         done();

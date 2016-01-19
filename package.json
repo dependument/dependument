@@ -4,7 +4,9 @@
   "description": "Dependency documentiser",
   "main": "index.js",
   "scripts": {
-    "test": "tsc gulpfile --module commonjs && gulp test"
+    "test:clean": "tsc gulpfile --module commonjs",
+    "test": "npm run test:clean && gulp test",
+    "test:ci": "npm run test:clean && gulp test:ci"
   },
   "bin": {
     "dependument": "dependument.js"

@@ -12,4 +12,4 @@ before_install:
   - "npm install -g gulp"
   - "npm install -g tsd"
   - "tsd install"
-script: npm test
+script: npm run test:ci
