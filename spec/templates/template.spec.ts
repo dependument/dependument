@@ -50,4 +50,4 @@ describe('Template', () => {
       should_return(t, testCases[t]);
     }
   });
-})
+});
