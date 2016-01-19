@@ -81,3 +81,19 @@ describe('FileSystem.getDevDependencies', () => {
     returnCorrectDevDependencies(i, testCase[0], testCase[1]);
   }
 });
+
+describe('FileSystem.writeDependencies', () => {
+  it('should call writeFileSync', () => {
+    let mockBase = {
+      writeFileSync: (file, data, options) => { }
+    };
+
+    spyOn(mockBase, 'writeFileSync');
+
+    let fileSystem = new FileSystem(mockBase);
+
+    fileSystem.writeDependencies({});
+
+    expect(mockBase.writeFileSync).toHaveBeenCalledWith('DEPENDENCIES.md', jasmine.any(Object), jasmine.any(Object));
+  });
+});

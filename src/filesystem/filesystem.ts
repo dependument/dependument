@@ -29,4 +29,8 @@ export class FileSystem implements IFileSystem {
   getDevDependencies(path: string): any {
     return this.getToken(path, 'devDependencies');
   }
+
+  writeDependencies(dependencies: any): void {
+    this._baseSystem.writeFileSync('DEPENDENCIES.md', dependencies, null);
+  }
 }
