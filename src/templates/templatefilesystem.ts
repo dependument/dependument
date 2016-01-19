@@ -1,3 +1,7 @@
+/// <reference path="../../typings/node/node.d.ts" />
+
+import * as path from 'path';
+
 export class TemplateFileSystem {
   private _baseSystem: any;
 
@@ -6,13 +10,21 @@ export class TemplateFileSystem {
   }
 
   getLocalTemplateInfo(): Array<any> {
-    var templates = [];
+    let templates = [];
 
     if (!this.directoryExists('template')) {
       return templates;
     }
 
-    return this._baseSystem.readdirSync('template');
+    let files = this._baseSystem.readdirSync('template');
+
+    for (let file of files) {
+      if (this.getFileExtension(file) === 'md') {
+        templates.push(file);
+      }
+    }
+
+    return templates;
   }
 
   private directoryExists(directory: string): boolean {
@@ -23,5 +35,9 @@ export class TemplateFileSystem {
     }
 
     return true;
+  }
+
+  private getFileExtension(name: string): string {
+    return name.substr((~-name.lastIndexOf(".") >>> 0) + 2);
   }
 }
