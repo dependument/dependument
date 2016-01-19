@@ -13,7 +13,7 @@ export class Template {
     return "}}";
   }
 
-  getContents(): string {
+  getTemplate(): string {
     return this._contents;
   }
 }
