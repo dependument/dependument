@@ -35,6 +35,7 @@
     "karma-requirejs": "^0.2.3",
     "karma-spec-reporter": "0.0.23",
     "phantomjs": "^1.9.19",
-    "requirejs": "^2.1.22"
+    "requirejs": "^2.1.22",
+    "run-sequence": "^1.1.5"
   }
 }
