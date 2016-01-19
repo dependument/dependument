@@ -40,6 +40,9 @@
     },
     "run-sequence/run-sequence.d.ts": {
       "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
+    },
+    "inversify/inversify.d.ts": {
+      "commit": "6659791e2e8b77cf81a8d0cca3512fba7c818f9b"
     }
   }
 }
