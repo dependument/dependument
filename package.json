@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Jameskmonger/dependument#readme",
   "devDependencies": {
+    "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-typescript": "^2.10.0",
     "jasmine-core": "^2.4.1",
