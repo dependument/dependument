@@ -19,8 +19,24 @@ describe('Template', () => {
     });
   });
 
-  describe('getContents', () => {
+  describe('getContents (no bindings)', () => {
     let testCases = ['', 'asjdaidja', 'the quick brown dog jumps over the lazy white parrot'];
+
+    function should_return(index, output) {
+      it('should return "' + output + '" [test case ' + index + ']', () => {
+        let tmp = new Template(output);
+
+        expect(tmp.getContents()).toBe(output);
+      });
+    }
+
+    for (let t in testCases) {
+      should_return(t, testCases[t]);
+    }
+  });
+
+  describe('getContents (with bindings)', () => {
+    let testCases = ['{{dependencies}}', 'hello, my name is {{name}}', '## {{dependencyName}}'];
 
     function should_return(index, output) {
       it('should return "' + output + '" [test case ' + index + ']', () => {
