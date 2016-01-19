@@ -21,7 +21,7 @@
         "!node_modules/**"
     ],
     "files": [
-        "filesystem.spec.ts",
+        "filesystem/filesystem.spec.ts",
         "karma.conf.ts",
         "spec.conf.ts",
         "templates/template.spec.ts",
