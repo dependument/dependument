@@ -42,6 +42,14 @@ class GulpEnvironment {
 
       done();
     });
+    gulp.task('build:umd', (done) => {
+      srcTSConfig.config.compilerOptions.module = 'umd';
+
+      srcTSConfig.src()
+        .pipe(tsc(srcTSConfig))
+        .pipe(gulp.dest('build'))
+        .on('end', done);
+    });
     gulp.task('test-build:spec', (done) => {
       specTSConfig.src()
         .pipe(tsc(specTSConfig))
@@ -49,6 +57,8 @@ class GulpEnvironment {
         .on('end', done);
     });
     gulp.task('test-build:src', (done) => {
+      srcTSConfig.config.compilerOptions.module = 'amd';
+
       srcTSConfig.src()
         .pipe(tsc(srcTSConfig))
         .pipe(gulp.dest('build.spec/src'))
