@@ -1,15 +1,17 @@
 /// <reference path="../../typings/jasmine/jasmine.d.ts" />
 
 import { FileSystem } from '../../src/filesystem/filesystem';
+import { SpecUtils } from '../spec.utils';
 
 describe('FileSystem', () => {
   describe('canReadPackageInfo', () => {
     it('should return false if unable to access', () => {
-      let fileSystem = new FileSystem({
-        accessSync: (file, type) => {
-          throw new Error("mock error");
-        }
-      });
+      let mock = SpecUtils.getMockFilesystem();
+      mock.accessSync = (file, type) => {
+        throw new Error("mock error");
+      };
+
+      let fileSystem = new FileSystem(mock);
 
       let canRead = fileSystem.canReadPackageInfo('');
 
@@ -17,9 +19,9 @@ describe('FileSystem', () => {
     });
 
     it('should return true if able to access', () => {
-      let fileSystem = new FileSystem({
-        accessSync: (file, type) => { }
-      });
+      let mock = SpecUtils.getMockFilesystem();
+
+      let fileSystem = new FileSystem(mock);
 
       let canRead = fileSystem.canReadPackageInfo('');
 
@@ -36,11 +38,12 @@ describe('FileSystem', () => {
 
     function returnCorrectDependencies(testCase, input, output) {
       it('should return the correct dependencies [test case ' + testCase + ']', () => {
-        let fileSystem = new FileSystem({
-          readFileSync: (file) => {
-            return input;
-          }
-        });
+        let mock = SpecUtils.getMockFilesystem();
+        mock.readFileSync = (file, options?) => {
+          return input;
+        };
+
+        let fileSystem = new FileSystem(mock);
 
         let dependencies = fileSystem.getDependencies('');
 
@@ -64,11 +67,12 @@ describe('FileSystem', () => {
 
     function returnCorrectDevDependencies(testCase, input, output) {
       it('should return the correct dev dependencies [test case ' + testCase + ']', () => {
-        let fileSystem = new FileSystem({
-          readFileSync: (file) => {
-            return input;
-          }
-        });
+        let mock = SpecUtils.getMockFilesystem();
+        mock.readFileSync = (file, options?) => {
+          return input;
+        };
+
+        let fileSystem = new FileSystem(mock);
 
         let devDependencies = fileSystem.getDevDependencies('');
 
@@ -85,17 +89,15 @@ describe('FileSystem', () => {
 
   describe('writeDependencies', () => {
     it('should call writeFileSync', () => {
-      let mockBase = {
-        writeFileSync: (file, data, options) => { }
-      };
+      let mock = SpecUtils.getMockFilesystem();
 
-      spyOn(mockBase, 'writeFileSync');
+      spyOn(mock, 'writeFileSync');
 
-      let fileSystem = new FileSystem(mockBase);
+      let fileSystem = new FileSystem(mock);
 
       fileSystem.writeDependencies({});
 
-      expect(mockBase.writeFileSync).toHaveBeenCalledWith('DEPENDENCIES.md', jasmine.any(Object), jasmine.any(Object));
+      expect(mock.writeFileSync).toHaveBeenCalledWith('DEPENDENCIES.md', jasmine.any(Object), jasmine.any(Object));
     });
   });
 });

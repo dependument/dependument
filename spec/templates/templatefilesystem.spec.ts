@@ -1,15 +1,18 @@
 /// <reference path="../../typings/jasmine/jasmine.d.ts" />
 
 import { TemplateFileSystem } from '../../src/templates/templatefilesystem';
+import { IBaseFileSystem } from '../../src/basefilesystem.i';
+import { SpecUtils } from '../spec.utils';
 
 describe("TemplateFileSystem", () => {
   describe("getLocalTemplateInfo", () => {
     it("returns empty array if there is no template directory", () => {
-      let fileSystem = new TemplateFileSystem({
-        accessSync: (file, type) => {
-          throw new Error("mock error");
-        }
-      });
+      let mock = SpecUtils.getMockFilesystem();
+      mock.accessSync = (file, mode?) => {
+        throw new Error("mock error");
+      };
+
+      let fileSystem = new TemplateFileSystem(mock);
 
       var localTemplates = fileSystem.getLocalTemplateInfo();
 
@@ -17,12 +20,12 @@ describe("TemplateFileSystem", () => {
     });
 
     it("returns empty array if directory exists with no files", () => {
-      let fileSystem = new TemplateFileSystem({
-        accessSync: (file, type) => { },
-        readdirSync: (path) => {
-          return [];
-        }
-      });
+      let mock = SpecUtils.getMockFilesystem();
+      mock.readdirSync = (path) => {
+        return [];
+      }
+
+      let fileSystem = new TemplateFileSystem(mock);
 
       var localTemplates = fileSystem.getLocalTemplateInfo();
 
@@ -38,12 +41,12 @@ describe("TemplateFileSystem", () => {
 
       function returns_correct_file_names_if_files_in_directory(index: number, input: Array<string>) {
         it("returns correct file names if files in directory [test case " + index + "]", () => {
-          let fileSystem = new TemplateFileSystem({
-            accessSync: (file, type) => { },
-            readdirSync: (path) => {
-              return input;
-            }
-          });
+          let mock = SpecUtils.getMockFilesystem();
+          mock.readdirSync = (path) => {
+            return input;
+          };
+
+          let fileSystem = new TemplateFileSystem(mock);
 
           var localTemplates = fileSystem.getLocalTemplateInfo();
 
@@ -87,12 +90,12 @@ describe("TemplateFileSystem", () => {
 
       function doesnt_return_wrong_types(index: number, input: Array<string>, output: Array<string>) {
         it("doesn't return wrong file types [test case " + index + "]", () => {
-          let fileSystem = new TemplateFileSystem({
-            accessSync: (file, type) => { },
-            readdirSync: (path) => {
-              return input;
-            }
-          });
+          let mock = SpecUtils.getMockFilesystem();
+          mock.readdirSync = (path) => {
+            return input;
+          }
+
+          let fileSystem = new TemplateFileSystem(mock);
 
           var localTemplates = fileSystem.getLocalTemplateInfo();
 
