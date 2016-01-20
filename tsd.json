@@ -37,6 +37,9 @@
     },
     "inversify/inversify.d.ts": {
       "commit": "6659791e2e8b77cf81a8d0cca3512fba7c818f9b"
+    },
+    "jasmine/jasmine.d.ts": {
+      "commit": "fab683ca77d0286b9d51aba6375deaceb41b22f5"
     }
   }
 }
