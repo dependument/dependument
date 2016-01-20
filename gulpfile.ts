@@ -58,7 +58,7 @@ class GulpEnvironment {
         .pipe(gulp.dest('build.spec/src'))
         .on('end', done);
     });
-    gulp.task('test:start', () => {
+    gulp.task('test:start', (done) => {
       return gulp.src(['build.spec/spec/**/*.spec.js'])
         .pipe(jasmineNode())
         .on('end', done);
