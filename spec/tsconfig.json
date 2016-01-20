@@ -22,8 +22,6 @@
     ],
     "files": [
         "filesystem/filesystem.spec.ts",
-        "karma.conf.ts",
-        "spec.conf.ts",
         "spec.utils.ts",
         "templates/template.spec.ts",
         "templates/templatefilesystem.spec.ts"

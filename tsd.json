@@ -5,13 +5,7 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "requirejs/require.d.ts": {
-      "commit": "70bf7e2bfeb0d5b1b651ef3219bcc65c8eec117e"
-    },
     "node/node.d.ts": {
-      "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
-    },
-    "jasmine/jasmine.d.ts": {
       "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
     },
     "del/del.d.ts": {
