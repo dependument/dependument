@@ -10,30 +10,25 @@ import del = require('del');
 import tsc = require('gulp-typescript');
 import runSequence = require('run-sequence');
 
-const Server = require('karma').Server;
+const jasmineNode = require('gulp-jasmine-node');
 const coveralls = require('gulp-coveralls');
 
 class GulpEnvironment {
-  private srcTSConfigAMD;
-  private specTSConfigAMD;
-  private srcTSConfigUMD;
+  private srcTSConfig;
+  private specTSConfig;
 
   constructor() {
-    this.srcTSConfigAMD = tsc.createProject('src/tsconfig.json', {
-      module: 'amd'
+    this.srcTSConfig = tsc.createProject('src/tsconfig.json', {
+      module: 'commonjs'
     });
-    this.specTSConfigAMD = tsc.createProject('spec/tsconfig.json', {
-      module: 'amd'
-    });
-    this.srcTSConfigUMD = tsc.createProject('src/tsconfig.json', {
-      module: 'umd'
+    this.specTSConfig = tsc.createProject('spec/tsconfig.json', {
+      module: 'commonjs'
     });
   }
 
   registerTasks() {
-    let srcTSConfigAMD = this.srcTSConfigAMD;
-    let specTSConfigAMD = this.specTSConfigAMD;
-    let srcTSConfigUMD = this.srcTSConfigUMD;
+    let srcTSConfig = this.srcTSConfig;
+    let specTSConfig = this.specTSConfig;
 
     gulp.task('test:ci', (done) => {
       runSequence('test', 'send-coveralls', () => {
@@ -51,29 +46,20 @@ class GulpEnvironment {
 
       done();
     });
-    gulp.task('build:umd', (done) => {
-      srcTSConfigUMD.src()
-        .pipe(tsc(srcTSConfigUMD))
-        .pipe(gulp.dest('build'))
-        .on('end', done);
-    });
     gulp.task('test-build:spec', (done) => {
-      specTSConfigAMD.src()
-        .pipe(tsc(specTSConfigAMD))
+      specTSConfig.src()
+        .pipe(tsc(specTSConfig))
         .pipe(gulp.dest('build.spec'))
         .on('end', done);
     });
     gulp.task('test-build:src', (done) => {
-      srcTSConfigAMD.src()
-        .pipe(tsc(srcTSConfigAMD))
+      srcTSConfig.src()
+        .pipe(tsc(srcTSConfig))
         .pipe(gulp.dest('build.spec/src'))
         .on('end', done);
     });
     gulp.task('test:start', () => {
-      new Server({
-        configFile: __dirname + '/build.spec/spec/karma.conf.js',
-        singleRun: true
-      }).start();
+      return gulp.src(['build.spec/spec/**/*.spec.js']).pipe(jasmineNode());
     });
     gulp.task('clean:build.spec', () => {
       return del([
