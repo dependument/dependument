@@ -59,7 +59,9 @@ class GulpEnvironment {
         .on('end', done);
     });
     gulp.task('test:start', () => {
-      return gulp.src(['build.spec/spec/**/*.spec.js']).pipe(jasmineNode());
+      return gulp.src(['build.spec/spec/**/*.spec.js'])
+        .pipe(jasmineNode())
+        .on('end', done);
     });
     gulp.task('clean:build.spec', () => {
       return del([
