@@ -97,7 +97,7 @@ describe('FileSystem', () => {
 
       fileSystem.writeDependencies({});
 
-      expect(mock.writeFileSync).toHaveBeenCalledWith('DEPENDENCIES.md', jasmine.any(Object), jasmine.any(Object));
+      expect(mock.writeFileSync).toHaveBeenCalledWith('DEPENDENCIES.md', { }, null);
     });
   });
 });
