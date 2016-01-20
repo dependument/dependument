@@ -1,7 +1,6 @@
 ## Dependencies
 ### For users
-* [inversify](https://www.npmjs.com/package/inversify) (^1.2.0)
-
+None
 
 ### For developers
 * [del](https://www.npmjs.com/package/del) (^2.2.0)

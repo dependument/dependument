@@ -35,6 +35,5 @@
     "run-sequence": "^1.1.5"
   },
   "dependencies": {
-    "inversify": "^1.2.0"
   }
 }
