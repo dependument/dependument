@@ -2,8 +2,9 @@
 
 import * as path from 'path';
 import { IBaseFileSystem } from '../basefilesystem.i';
+import { ITemplateFileSystem } from './templatefilesystem.i';
 
-export class TemplateFileSystem {
+export class TemplateFileSystem implements ITemplateFileSystem {
   private _baseSystem: IBaseFileSystem;
 
   constructor(baseSystem: IBaseFileSystem) {
