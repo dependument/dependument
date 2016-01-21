@@ -26,6 +26,8 @@
         "dependument.ts",
         "filesystem/filesystem.i.ts",
         "filesystem/filesystem.ts",
+        "options/options.i.ts",
+        "options/templateoptions.i.ts",
         "templates/template.ts",
         "templates/templatefilesystem.i.ts",
         "templates/templatefilesystem.ts"
