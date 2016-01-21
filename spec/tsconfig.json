@@ -21,6 +21,7 @@
         "!node_modules/**"
     ],
     "files": [
+        "dependument.manager.spec.ts",
         "filesystem/filesystem.spec.ts",
         "spec.utils.ts",
         "templates/template.spec.ts",
