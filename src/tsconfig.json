@@ -27,6 +27,7 @@
         "filesystem/filesystem.i.ts",
         "filesystem/filesystem.ts",
         "templates/template.ts",
+        "templates/templatefilesystem.i.ts",
         "templates/templatefilesystem.ts"
     ],
     "atom": {
