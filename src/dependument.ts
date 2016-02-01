@@ -10,5 +10,8 @@ export class Dependument {
     if (!options.output) {
       throw new Error("No output path specified in options");
     }
+
+    this.source = source;
+    this.output = output;
   }
 }
