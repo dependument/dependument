@@ -1,6 +1,6 @@
 export class Dependument {
-  private package: string;
-  private templates: string;
+  private source: string;
+  private output: string;
 
   constructor(options: any) {
     if (!options.source) {
