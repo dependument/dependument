@@ -1,7 +1,6 @@
 import { IFileSystem } from './filesystem/filesystem.i';
 import { ITemplateFileSystem } from './templates/templatefilesystem.i';
 import { IOptions } from './options/options.i';
-import * as Path from 'path';
 
 export class DependumentManager {
   private _fileSystem : IFileSystem;
