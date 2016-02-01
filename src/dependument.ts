@@ -1,6 +1,6 @@
 export class Dependument {
-  private packageJsonPath: string;
-  private templatesFolderPath: string;
+  private package: string;
+  private templates: string;
 
   constructor(options: any) {
     
