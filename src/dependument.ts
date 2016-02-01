@@ -10,5 +10,9 @@ export class Dependument {
     if (!options.path.package) {
       throw new Error("No package path specified in options");
     }
+
+    if (!options.path.output) {
+      throw new Error("No output path specified in options");
+    }
   }
 }
