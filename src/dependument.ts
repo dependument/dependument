@@ -23,6 +23,10 @@ export class Dependument {
     this.output = options.output;
   }
 
+  readInfo(done: () => any) {
+    
+  }
+
   writeOutput() {
     fs.writeFile(this.output, 'dependument test writeOutput', (err) => {
       if (err) throw err;
