@@ -35,7 +35,7 @@ export class Dependument {
         throw err;
       }
 
-      let json = JSON.stringify(data.toString());
+      let json = JSON.parse(data.toString());
 
       console.log(json);
 
