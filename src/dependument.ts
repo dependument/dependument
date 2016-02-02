@@ -29,7 +29,7 @@ export class Dependument {
     });
   }
 
-  readInfo(success: () => any) {
+  private readInfo(success: () => any) {
     fs.readFile(this.source, (err, data) => {
       if (err) {
         throw err;
@@ -39,7 +39,7 @@ export class Dependument {
     });
   }
 
-  writeOutput() {
+  private writeOutput() {
     fs.writeFile(this.output, 'dependument test writeOutput', (err) => {
       if (err) throw err;
       console.log(`Output written to ${this.output}`);
