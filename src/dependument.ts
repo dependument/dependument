@@ -16,6 +16,9 @@ export class Dependument {
   }
 
   writeOutput() {
-
+    fs.writeFile(this.output, 'dependument test writeOutput', (err) => {
+      if (err) throw err;
+      console.log(`Output written to ${this.output}`);
+    });
   }
 }
