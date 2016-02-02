@@ -37,6 +37,8 @@ export class Dependument {
 
       let json = JSON.stringify(data.toString());
 
+      console.log(json);
+
       let deps: string[][] = [];
 
       deps["dependencies"] = json["dependencies"];
