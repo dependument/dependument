@@ -3,10 +3,14 @@ export class Adapter {
   private static DEPENCENCY_TEMPLATE: string = "* [{{package_name}}]({{package_url}}) ({{package_version}})\n";
 
   public static getFileOutput(dependencies: string[][]) {
-    
+
   }
 
   private static getDependenciesOutput(dependencies: string[]): string {
+    if (!dependencies) {
+      return undefined;
+    }
+
     let output = "";
 
     Object.keys(dependencies).forEach(function (key) {
