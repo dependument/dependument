@@ -24,23 +24,23 @@ export class Dependument {
   }
 
   public process() {
-    this.readInfo(() => {
-      this.writeOutput();
+    this.readInfo((info: string) => {
+      this.writeOutput(info);
     });
   }
 
-  private readInfo(success: () => any) {
-    fs.readFile(this.source, (err, data) => {
+  private readInfo(success: (info: string) => any) {
+    fs.readFile(this.source, (err, data: Buffer) => {
       if (err) {
         throw err;
       }
 
-      success();
+      success(data.toString());
     });
   }
 
-  private writeOutput() {
-    fs.writeFile(this.output, 'dependument test writeOutput', (err) => {
+  private writeOutput(output: string) {
+    fs.writeFile(this.output, output, (err) => {
       if (err) throw err;
       console.log(`Output written to ${this.output}`);
     });
