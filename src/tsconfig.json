@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "module": "umd",
+        "module": "commonjs",
         "moduleResolution": "node",
         "isolatedModules": false,
         "jsx": "react",
@@ -13,7 +13,7 @@
         "noLib": false,
         "preserveConstEnums": true,
         "suppressImplicitAnyIndexErrors": true,
-        "outDir": "../build"
+        "outDir": "../build/"
     },
     "filesGlob": [
         "**/*.ts",
@@ -21,16 +21,8 @@
         "!node_modules/**"
     ],
     "files": [
-        "basefilesystem.i.ts",
-        "dependument.manager.ts",
-        "dependument.ts",
-        "filesystem/filesystem.i.ts",
-        "filesystem/filesystem.ts",
-        "options/options.i.ts",
-        "options/templateoptions.i.ts",
-        "templates/template.ts",
-        "templates/templatefilesystem.i.ts",
-        "templates/templatefilesystem.ts"
+        "adapter.ts",
+        "dependument.ts"
     ],
     "atom": {
         "rewriteTsconfig": true

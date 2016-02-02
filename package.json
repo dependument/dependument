@@ -1,15 +1,9 @@
 {
   "name": "dependument",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Dependency documentiser",
-  "main": "index.js",
+  "main": "build/dependument.js",
   "scripts": {
-    "gulp-build": "tsc gulpfile --module commonjs",
-    "test": "npm run gulp-build && gulp test",
-    "test:ci": "npm run gulp-build && gulp test:ci"
-  },
-  "bin": {
-    "dependument": "dependument.js"
   },
   "repository": {
     "type": "git",
@@ -26,13 +20,7 @@
   },
   "homepage": "https://github.com/Jameskmonger/dependument#readme",
   "devDependencies": {
-    "del": "^2.2.0",
-    "gulp": "^3.9.0",
-    "gulp-coveralls": "^0.1.4",
-    "gulp-jasmine-node": "^1.0.3",
-    "gulp-typescript": "^2.10.0",
-    "jasmine-core": "^2.4.1",
-    "run-sequence": "^1.1.5"
+    "gulp": "^3.9.0"
   },
   "dependencies": {
   }
