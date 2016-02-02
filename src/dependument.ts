@@ -25,7 +25,7 @@ export class Dependument {
 
   public process() {
     this.readDependencies((deps: string[][]) => {
-      //this.writeOutput(deps);
+      this.writeDependencies(deps);
     });
   }
 
@@ -35,10 +35,20 @@ export class Dependument {
         throw err;
       }
 
+      let json = JSON.stringify(data.toString());
+
+      let deps: string[][] = [];
+
+      deps["dependencies"] = json["dependencies"];
+      deps["devDependencies"] = json["devDependencies"];
+
+      success(deps);
     });
   }
 
-  private writeOutput(output: string) {
+  private writeDependencies(deps: string[][]) {
+    let output = `${deps["dependencies"]}\n${deps["devDependencies"]}`;
+
     fs.writeFile(this.output, output, (err) => {
       if (err) throw err;
       console.log(`Output written to ${this.output}`);
