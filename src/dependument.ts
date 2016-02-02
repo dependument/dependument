@@ -2,6 +2,8 @@
 
 import * as fs from 'fs';
 
+import { Adapter } from './adapter';
+
 export class Dependument {
   private source: string;
   private output: string;
@@ -49,38 +51,7 @@ export class Dependument {
   }
 
   private writeDependencies(deps: string[][]) {
-    let output = "";
-
-    output += "## Dependencies\n";
-    output += "### For users\n";
-
-    Object.keys(deps["dependencies"]).forEach(function (key) {
-      let name = key;
-      let version = deps["dependencies"][key];
-      let url = "https://www.npmjs.com/package/" + name;
-
-      let line = Dependument.DEPENCENCY_TEMPLATE
-                  .replace("{{package_name}}", name)
-                  .replace("{{package_url}}", url)
-                  .replace("{{package_version}}", version);
-
-      output += line;
-    });
-
-    output += "### For developers\n";
-
-    Object.keys(deps["devDependencies"]).forEach(function (key) {
-      let name = key;
-      let version = deps["devDependencies"][key];
-      let url = "https://www.npmjs.com/package/" + name;
-
-      let line = Dependument.DEPENCENCY_TEMPLATE
-                  .replace("{{package_name}}", name)
-                  .replace("{{package_url}}", url)
-                  .replace("{{package_version}}", version);
-
-      output += line;
-    });
+    let output = Adapter.getFileOutput(deps);
 
     fs.writeFile(this.output, output, (err) => {
       if (err) throw err;
