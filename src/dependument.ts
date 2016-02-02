@@ -24,18 +24,17 @@ export class Dependument {
   }
 
   public process() {
-    this.readInfo((info: string) => {
-      this.writeOutput(info);
+    this.readDependencies((deps: string[][]) => {
+      //this.writeOutput(deps);
     });
   }
 
-  private readInfo(success: (info: string) => any) {
+  private readDependencies(success: (info: string[][]) => void) {
     fs.readFile(this.source, (err, data: Buffer) => {
       if (err) {
         throw err;
       }
 
-      success(data.toString());
     });
   }
 
