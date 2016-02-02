@@ -21,6 +21,7 @@
         "!node_modules/**"
     ],
     "files": [
+        "adapter.ts",
         "dependument.ts"
     ],
     "atom": {
