@@ -5,6 +5,10 @@ export class Adapter {
   public static getFileOutput(dependencies: string[][]) {
     let deps = Adapter.getDependenciesOutput(dependencies["dependencies"]) || "None!";
     let devDeps = Adapter.getDependenciesOutput(dependencies["devDependencies"]) || "None!";
+
+    return Adapter.FILE_TEMPLATE
+              .replace("{{dependencies}}", deps)
+              .replace("{{devDependencies}}", devDeps);
   }
 
   private static getDependenciesOutput(dependencies: string[]): string {
