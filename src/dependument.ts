@@ -37,12 +37,10 @@ export class Dependument {
 
       let json = JSON.parse(data.toString());
 
-      console.log(json);
-
       let deps: string[][] = [];
 
-      deps["dependencies"] = json["dependencies"];
-      deps["devDependencies"] = json["devDependencies"];
+      deps["dependencies"] = json["dependencies"].toString();
+      deps["devDependencies"] = json["devDependencies"].toString();
 
       success(deps);
     });
