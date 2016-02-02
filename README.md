@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Jameskmonger/dependument.svg?branch=typescript)](https://travis-ci.org/Jameskmonger/dependument)
 [![npm version](https://badge.fury.io/js/dependument.svg)](https://badge.fury.io/js/dependument)
-[![Dependency status](https://david-dm.org/jameskmonger/dependument/status.png)](https://david-dm.org/jameskmonger/dependument#info=dependencies&view=table)
+[![Dependency status](https://david-dm.org/dependument/dependument/status.png)](https://david-dm.org/dependument/dependument#info=dependencies&view=table)
 [![Dev Dependency Status](https://david-dm.org/jameskmonger/dependument/dev-status.png)](https://david-dm.org/jameskmonger/dependument#info=devDependencies&view=table)
 [![license](https://img.shields.io/badge/license-unlicense-blue.svg)](http://shields.io/)
 
