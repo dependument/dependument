@@ -1,3 +1,5 @@
+/// <reference path="../typings/node/node.d.ts" />
+
 import * as fs from 'fs';
 
 export class Dependument {
