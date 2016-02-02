@@ -24,7 +24,9 @@ export class Dependument {
   }
 
   readInfo(done: () => any) {
-    
+    fs.readFile(this.source, (err, data) => {
+      
+    });
   }
 
   writeOutput() {
