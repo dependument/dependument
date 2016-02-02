@@ -5,9 +5,6 @@
   "main": "build/dependument.js",
   "scripts": {
   },
-  "bin": {
-    "dependument": "dependument.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jameskmonger/dependument.git"
