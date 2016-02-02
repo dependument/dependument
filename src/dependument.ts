@@ -7,6 +7,10 @@ export class Dependument {
   private output: string;
 
   constructor(options: any) {
+    if (!options) {
+      throw new Error("No options provided");
+    }
+
     if (!options.source) {
       throw new Error("No source path specified in options");
     }
