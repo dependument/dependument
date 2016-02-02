@@ -2,7 +2,7 @@
   "name": "dependument",
   "version": "0.1.1",
   "description": "Dependency documentiser",
-  "main": "index.js",
+  "main": "build/dependument.js",
   "scripts": {
   },
   "bin": {
