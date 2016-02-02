@@ -14,4 +14,8 @@ export class Dependument {
     this.source = source;
     this.output = output;
   }
+
+  writeOutput() {
+
+  }
 }
