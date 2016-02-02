@@ -23,6 +23,12 @@ export class Dependument {
     this.output = options.output;
   }
 
+  public process() {
+    this.readInfo(() => {
+      this.writeOutput();
+    });
+  }
+
   readInfo(success: () => any) {
     fs.readFile(this.source, (err, data) => {
       if (err) {
