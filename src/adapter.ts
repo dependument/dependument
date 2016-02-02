@@ -7,7 +7,7 @@ export class Adapter {
   }
 
   private static getDependenciesOutput(dependencies: string[]): string {
-    if (!dependencies) {
+    if (!dependencies || dependencies.length === 0) {
       return undefined;
     }
 
