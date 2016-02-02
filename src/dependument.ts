@@ -15,8 +15,8 @@ export class Dependument {
       throw new Error("No output path specified in options");
     }
 
-    this.source = source;
-    this.output = output;
+    this.source = options.source;
+    this.output = options.output;
   }
 
   writeOutput() {
