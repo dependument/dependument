@@ -1,3 +1,5 @@
+import * as fs from 'fs';
+
 export class Dependument {
   private source: string;
   private output: string;
