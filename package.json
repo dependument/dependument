@@ -1,6 +1,6 @@
 {
   "name": "dependument",
-  "version": "0.1.1",
+  "version": "0.1.2-beta",
   "description": "Dependency documentiser",
   "main": "build/dependument.js",
   "scripts": {
